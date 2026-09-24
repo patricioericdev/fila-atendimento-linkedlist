@@ -18,7 +18,8 @@ public class FilaAtendimento {
             System.out.println("A fila está vazia.");
             return;
         }
-        System.out.println("Atendendo aluno: " + fila.head.aluno.getNome());
+        Aluno proximo = fila.peekFirst();
+        System.out.println("Atendendo aluno: " + proximo.getNome());
         fila.removeFirst();
     }
 

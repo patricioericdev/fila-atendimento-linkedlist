@@ -74,6 +74,10 @@ public class LinkedList {
         return null;
     }
 
+    public Aluno peekFirst() {
+        return head != null ? head.aluno : null;
+    }
+
     public void print() {
         var temp = head;
         while (temp != null) {
