@@ -1,8 +1,10 @@
+package aula06;
+
 public class FilaAtendimento {
-    private LinkedList fila;
+    private LinkedList<Aluno> fila;
 
     public FilaAtendimento() {
-        this.fila = new LinkedList();
+        this.fila = new LinkedList<>();
     }
 
     public void adicionarAlunoNoFim(Aluno aluno) {
@@ -24,7 +26,8 @@ public class FilaAtendimento {
     }
 
     public void removerAluno(String matricula) {
-        fila.remove(matricula);
+        final var aluno = new Aluno(matricula);
+        fila.remove(aluno);
     }
 
     public void removerUltimoAluno() {
@@ -36,7 +39,8 @@ public class FilaAtendimento {
     }
 
     public Aluno buscarAluno(String matricula) {
-        return fila.get(matricula);
+        final var aluno = new Aluno(matricula);
+        return fila.get(aluno);
     }
 
     public void listarAlunos() {

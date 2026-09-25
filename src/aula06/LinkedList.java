@@ -1,23 +1,25 @@
-public class LinkedList {
+package aula06;
+
+public class LinkedList<T> {
     Node head;
 
-    static class Node {
-        Aluno aluno;
+    private class Node {
+        T data;
         Node next;
 
-        public Node(Aluno aluno) {
-            this.aluno = aluno;
+        public Node(T data) {
+            this.data = data;
         }
     }
 
-    public void insertFirst(Aluno aluno) {
-        var newNode = new Node(aluno);
+    public void insertFirst(T data) {
+        var newNode = new Node(data);
         newNode.next = this.head;
         this.head = newNode;
     }
 
-    public void insertEnd(Aluno aluno) {
-        var newNode = new Node(aluno);
+    public void insertEnd(T data) {
+        var newNode = new Node(data);
         if (head == null) {
             head = newNode;
             return;
@@ -52,10 +54,10 @@ public class LinkedList {
         temp.next = null;
     }
 
-    public boolean contains(String matricula) {
+    public boolean contains(T data) {
         var temp = head;
         while (temp != null) {
-            if (temp.aluno.getMatricula().equals(matricula)) {
+            if (temp.data.equals(data)) {
                 return true;
             }
             temp = temp.next;
@@ -63,25 +65,25 @@ public class LinkedList {
         return false;
     }
 
-    public Aluno get(String matricula) {
+    public T get(T data) {
         Node current = head;
         while (current != null) {
-            if (current.aluno.getMatricula().equals(matricula)) {
-                return current.aluno;
+            if (current.data.equals(data)) {
+                return current.data;
             }
             current = current.next;
         }
         return null;
     }
 
-    public Aluno peekFirst() {
-        return head != null ? head.aluno : null;
+    public T peekFirst() {
+        return head != null ? head.data : null;
     }
 
     public void print() {
         var temp = head;
         while (temp != null) {
-            System.out.println(temp.aluno.toString());
+            System.out.println(temp.data.toString());
             temp = temp.next;
         }
     }
@@ -100,17 +102,17 @@ public class LinkedList {
         return head == null;
     }
 
-    public void remove(String matricula) {
+    public void remove(T data) {
         if (head == null) return;
 
-        if (head.aluno.getMatricula().equals(matricula)) {
+        if (head.data.equals(data)) {
             head = head.next;
             return;
         }
 
         var current = head;
         while (current.next != null) {
-            if (current.next.aluno.getMatricula().equals(matricula)) {
+            if (current.next.data.equals(data)) {
                 current.next = current.next.next;
                 return;
             }
@@ -118,13 +120,13 @@ public class LinkedList {
         }
     }
 
-    public void insertAt(int index, Aluno aluno) {
+    public void insertAt(int index, T data) {
         if (index == 0) {
-            insertFirst(aluno);
+            insertFirst(data);
             return;
         }
 
-        var newNode = new Node(aluno);
+        var newNode = new Node(data);
         var current = head;
         int count = 0;
 
@@ -139,11 +141,11 @@ public class LinkedList {
         }
     }
 
-    public int search(String matricula) {
+    public int search(T data) {
         var temp = head;
         int index = 0;
         while (temp != null) {
-            if (temp.aluno.getMatricula().equals(matricula)) {
+            if (temp.data.equals(data)) {
                 return index;
             }
             temp = temp.next;

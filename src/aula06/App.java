@@ -1,3 +1,5 @@
+package aula06;
+
 public class App {
     public static void main(String[] args) {
         FilaAtendimento fila = new FilaAtendimento();
@@ -33,18 +35,18 @@ public class App {
         System.out.println("Quantidade: " + fila.quantidadeAlunos());
 
         // TESTE 6: Buscar aluno existente
-        System.out.println("\n--- Teste: Buscar Aluno ---");
+        System.out.println("\n--- Teste: Buscar aula07.Aluno ---");
         fila.adicionarAlunoNoFim(new Aluno("Daniel", "202404", 2));
         fila.adicionarAlunoNoFim(new Aluno("Eva", "202405", 1));
         Aluno encontrado = fila.buscarAluno("202404");
         if (encontrado != null) {
-            System.out.println("Aluno encontrado: " + encontrado);
+            System.out.println("aula07.Aluno encontrado: " + encontrado);
         }
 
         // TESTE 7: Buscar aluno inexistente
         Aluno naoExiste = fila.buscarAluno("999999");
         if (naoExiste == null) {
-            System.out.println("Aluno com matricula 999999 nao encontrado.");
+            System.out.println("aula07.Aluno com matricula 999999 nao encontrado.");
         }
 
         // TESTE 8: Listar fila final
